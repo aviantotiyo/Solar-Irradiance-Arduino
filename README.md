@@ -1,5 +1,3 @@
-Berikut adalah file README dalam format markdown untuk kode di atas:
-
 ---
 
 # Solar Panel and INA219 Sensor Measurement
@@ -9,9 +7,10 @@ This project uses an Arduino Uno, an Adafruit INA219 sensor, and a voltage divid
 ## Components
 
 - Arduino Uno
-- Adafruit INA219 Sensor
-- Resistors (30 kΩ and 7.5 kΩ for voltage divider)
-- Solar Panel (260 mm x 350 mm)
+- Adafruit [INA219 Sensor](https://www.tokopedia.com/search?st=product&q=ina219) 
+- [Voltage Sensor](https://www.tokopedia.com/search?st=product&q=voltage%20sensor%20arduino) Resistors (30 kΩ and 7.5 kΩ for voltage divider) 
+- [Solar Panel 10Wp](https://www.tokopedia.com/search?q=solar+panel+10wp) (260 mm x 350 mm)
+- [10 kΩ/5Watt](https://www.tokopedia.com/search?st=&q=Resistor%2010K%20ohm%205%20watt%2010Kohm%205W%20keramik) (R3, series with INA219 for current measurement)
 
 ## Circuit Diagram
 
@@ -26,7 +25,9 @@ This project uses an Arduino Uno, an Adafruit INA219 sensor, and a voltage divid
    - The junction of the 30 kΩ resistor and 7.5 kΩ resistor (R2) to Arduino `A0`
    - The negative terminal of the solar panel to the 7.5 kΩ resistor and then to ground
 
-## Code Explanation
+3. **INA219 Current Measurement:**:
+   - Connect a 10 kΩ resistor (R3) in series with the load to the INA219 sensor. This resistor helps in measuring the current flowing through the load.
+
 
 ### Libraries
 
@@ -72,6 +73,6 @@ The code will print the following data to the serial monitor:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License 
 
 ---
