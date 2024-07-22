@@ -1,6 +1,6 @@
 ---
 
-# Solar Panel and INA219 Sensor Measurement
+# Solar Irradiance Measurement Meter using Arduino
 
 This project uses an Arduino Uno, an Adafruit INA219 sensor, and a voltage divider to measure current, voltage, power, and irradiance of a solar panel. The results are displayed on the serial monitor.
 
