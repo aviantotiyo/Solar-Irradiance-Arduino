@@ -1,5 +1,9 @@
 #include <Wire.h>
 #include <Adafruit_INA219.h>
+#include <LiquidCrystal_I2C.h>
+
+// Inisialisasi LCD (alamat I2C 0x27, ukuran 16x2)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Konstanta untuk resistor divider
 const float R1 = 30.0;   // Nilai resistor R1 dalam kΩ
@@ -19,6 +23,10 @@ void setup() {
     Serial.println("Failed to find INA219 chip");
     while (1) { delay(10); }
   }
+  
+  // Inisialisasi LCD
+  lcd.begin(16, 2);  // Menentukan ukuran LCD 16x2
+  lcd.backlight();  // Menghidupkan backlight LCD
   
   // Setelah inisialisasi berhasil
   Serial.println("INA219 sensor initialized");
@@ -60,5 +68,14 @@ void loop() {
   Serial.print("Irradiance:        "); Serial.print(irradiance); Serial.println(" W/m^2");
   
   Serial.println("-----------------------");
-  delay(10000); // Delay satu detik
+
+  // Tampilkan hasil ke LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Irradiance:");
+  lcd.setCursor(0, 1);
+  lcd.print(irradiance, 2); // Menampilkan 2 digit desimal
+  lcd.print(" W/m^2");
+
+  delay(10000); // Delay 10 detik
 }
